@@ -1,0 +1,11 @@
+#Berfungsi untuk redirectalamat /index.php menjadi tidak ada 
+
+RewriteEngine on
+
+Options ALL -Indexes
+IndexIgnore *
+
+RewriteCond $1 !^(index\.php|images|js|css|favicon\.png)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ ./index.php/$1 [L]
